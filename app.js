@@ -1,11 +1,12 @@
 import express from 'express'
 
-import productRouter from './src/products/products.routes'
+import productRouter from './src/products/products.routes.js'
 
 const app = express()
 const port = 3100
 
-app.use('/products', productRouter)
+app.use('/api/products', productRouter)
+
 app.listen(port,(err)=>{
     console.log("Server is running successfully on port :", port)
     if(err){
