@@ -1,9 +1,11 @@
+import 'dotenv/config'
 import express from 'express'
 
 import productRouter from './src/products/products.routes.js'
+import { connectToMongoDB } from './src/config/mongodb.js'
 
 const app = express()
-const port = 3100
+const port = process.env.PORT
 
 app.use('/api/products', productRouter)
 
@@ -12,4 +14,5 @@ app.listen(port,(err)=>{
     if(err){
         console.log("Error while running server :", err);
     }
+    connectToMongoDB()
 })
