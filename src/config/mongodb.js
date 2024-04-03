@@ -1,7 +1,10 @@
+// import mongoClient form mongodb module
 import { MongoClient } from "mongodb";
 
+// define client
 let client;
 
+// function to connect mongo DB 
 export const connectToMongoDB = () => {
     MongoClient.connect(process.env.MONGO_URL)
     .then(clientInstance => {
@@ -13,6 +16,7 @@ export const connectToMongoDB = () => {
     })
 }
 
+// function to export dataBase
 export const getDB = () => {
     return client.db()
 }
